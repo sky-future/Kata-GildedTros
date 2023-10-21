@@ -14,6 +14,10 @@ public class UpdateQualityStrategyFactory {
             case BACKSTAGE_PASSES_FOR_RE_FACTOR:
             case BACKSTAGE_PASSES_FOR_HAXX:
                 return new BackstagePassesUpdateStrategy();
+            case DUPLICATE_CODE:
+            case LONG_METHODS:
+            case UGLY_VARIABLE_NAMES:
+                return new SmellyItemUpdateStrategy();
             default:
                 return new StandardItemUpdateStrategy();
         }
