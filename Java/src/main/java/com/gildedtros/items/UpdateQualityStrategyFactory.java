@@ -3,8 +3,6 @@ package com.gildedtros.items;
 import com.gildedtros.Item;
 import com.gildedtros.enums.ItemNameEnum;
 
-import static com.gildedtros.enums.ItemNameEnum.GOOD_WINE;
-
 public class UpdateQualityStrategyFactory {
     public static UpdateQualityStrategyInterface getStrategy(Item item) {
         ItemNameEnum itemNameEnum = ItemNameEnum.fromString(item.name);

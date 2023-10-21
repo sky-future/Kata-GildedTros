@@ -158,4 +158,48 @@ class GildedTrosTest {
         assertEquals(80, item.quality);
         assertEquals(-1, item.sellIn);
     }
+
+    @Test
+    @DisplayName("Smelly items decrease in quality twice as fast as normal items")
+    void smelly_items_decrease_in_quality_twice_as_fast_as_normal_items() {
+        Item item = new Item(DUPLICATE_CODE.getValue(), 10, 10);
+        GildedTros subject = new GildedTros(new Item[] { item });
+        subject.updateGildedTrosInventory();
+
+        assertEquals(8, item.quality);
+        assertEquals(9, item.sellIn);
+    }
+
+    @Test
+    @DisplayName("Duplicate code decreases in quality twice as fast as normal items")
+    void duplicate_code_decreases_in_quality_twice_as_fast_as_normal_items() {
+        Item item = new Item(DUPLICATE_CODE.getValue(), 10, 10);
+        GildedTros subject = new GildedTros(new Item[] { item });
+        subject.updateGildedTrosInventory();
+
+        assertEquals(8, item.quality);
+        assertEquals(9, item.sellIn);
+    }
+
+    @Test
+    @DisplayName("Long methods decrease in quality twice as fast as normal items")
+    void long_methods_decreases_in_quality_twice_as_fast_as_normal_items() {
+        Item item = new Item(LONG_METHODS.getValue(), 10, 10);
+        GildedTros subject = new GildedTros(new Item[] { item });
+        subject.updateGildedTrosInventory();
+
+        assertEquals(8, item.quality);
+        assertEquals(9, item.sellIn);
+    }
+
+    @Test
+    @DisplayName("Ugly variable names decrease in quality twice as fast as normal items")
+    void ugly_variable_names_decreases_in_quality_twice_as_fast_as_normal_items() {
+        Item item = new Item(UGLY_VARIABLE_NAMES.getValue(), 10, 10);
+        GildedTros subject = new GildedTros(new Item[] { item });
+        subject.updateGildedTrosInventory();
+
+        assertEquals(8, item.quality);
+        assertEquals(9, item.sellIn);
+    }
 }

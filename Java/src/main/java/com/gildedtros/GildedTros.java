@@ -3,8 +3,6 @@ package com.gildedtros;
 import com.gildedtros.items.UpdateQualityStrategyFactory;
 import com.gildedtros.items.UpdateQualityStrategyInterface;
 
-import static com.gildedtros.enums.ItemNameEnum.*;
-
 class GildedTros {
     Item[] items;
 
