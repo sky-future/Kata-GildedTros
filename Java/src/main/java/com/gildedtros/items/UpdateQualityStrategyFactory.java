@@ -4,6 +4,9 @@ import com.gildedtros.Item;
 import com.gildedtros.enums.ItemNameEnum;
 
 public class UpdateQualityStrategyFactory {
+    private UpdateQualityStrategyFactory() {
+        throw new IllegalStateException("Utility class");
+    }
     public static UpdateQualityStrategyInterface getStrategy(Item item) {
         ItemNameEnum itemNameEnum = ItemNameEnum.fromString(item.name);
         switch (itemNameEnum) {
