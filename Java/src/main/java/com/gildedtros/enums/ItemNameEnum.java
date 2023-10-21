@@ -9,7 +9,8 @@ public enum ItemNameEnum {
     BACKSTAGE_PASSES_FOR_HAXX("Backstage passes for HAXX"),
     DUPLICATE_CODE("Duplicate Code"),
     LONG_METHODS("Long Methods"),
-    UGLY_VARIABLE_NAMES("Ugly Variable Names");
+    UGLY_VARIABLE_NAMES("Ugly Variable Names"),
+    UNRECOGNIZED_ITEM("Unrecognized Item");
 
     public final String value;
 
@@ -19,5 +20,14 @@ public enum ItemNameEnum {
 
     public String getValue() {
         return value;
+    }
+
+    public static ItemNameEnum fromString(String text) {
+        for (ItemNameEnum name : ItemNameEnum.values()) {
+            if (name.value.equalsIgnoreCase(text)) {
+                return name;
+            }
+        }
+        return ItemNameEnum.UNRECOGNIZED_ITEM;
     }
 }
