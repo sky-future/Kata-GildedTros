@@ -1,16 +1,15 @@
 package com.gildedtros.items;
 
 import com.gildedtros.Item;
+import com.gildedtros.utils.ItemUtility;
 
-public class GoodWineUpdateStrategy implements UpdateQualityStrategyInterface{
+public class GoodWineUpdateStrategy implements UpdateQualityStrategyInterface {
     @Override
     public void updateQuality(Item item) {
-        if (item.quality < 50) {
-            item.quality++;
-        }
+        ItemUtility.increaseQuality(item);
         item.sellIn--;
-        if (item.sellIn < 0 && item.quality < 50) {
-            item.quality++;
+        if (item.sellIn < 0) {
+            ItemUtility.increaseQuality(item);
         }
     }
 }

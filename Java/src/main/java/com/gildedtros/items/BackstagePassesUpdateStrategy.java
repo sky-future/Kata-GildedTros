@@ -1,24 +1,19 @@
 package com.gildedtros.items;
 
 import com.gildedtros.Item;
+import com.gildedtros.utils.ItemUtility;
 
-public class BackstagePassesUpdateStrategy implements UpdateQualityStrategyInterface{
+public class BackstagePassesUpdateStrategy implements UpdateQualityStrategyInterface {
     @Override
     public void updateQuality(Item item) {
-        if (item.quality < 50) {
-            item.quality++;
+        ItemUtility.increaseQuality(item);
 
-            if (item.sellIn < 11) {
-                if (item.quality < 50) {
-                    item.quality++;
-                }
-            }
+        if (item.sellIn < 11) {
+            ItemUtility.increaseQuality(item);
+        }
 
-            if (item.sellIn < 6) {
-                if (item.quality < 50) {
-                    item.quality++;
-                }
-            }
+        if (item.sellIn < 6) {
+            ItemUtility.increaseQuality(item);
         }
 
         item.sellIn--;

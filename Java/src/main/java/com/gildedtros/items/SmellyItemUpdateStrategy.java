@@ -1,22 +1,17 @@
 package com.gildedtros.items;
 
 import com.gildedtros.Item;
+import com.gildedtros.utils.ItemUtility;
 
 public class SmellyItemUpdateStrategy implements UpdateQualityStrategyInterface{
     @Override
     public void updateQuality(Item item) {
-        decreaseQuality(item);
+        ItemUtility.decreaseQuality(item);
+        ItemUtility.decreaseQuality(item);
         item.sellIn--;
         if (item.sellIn < 0) {
-            decreaseQuality(item);
+            ItemUtility.decreaseQuality(item);
+            ItemUtility.decreaseQuality(item);
         }
-    }
-
-    private void decreaseQuality(Item item) {
-        // The quality degrades twice as fast, we decrease it by 2 units
-        if (item.quality > 0) {
-            item.quality = Math.max(item.quality - 2, 0);
-        }
-
     }
 }
